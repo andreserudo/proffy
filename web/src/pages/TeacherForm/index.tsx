@@ -48,6 +48,33 @@ function TeacherForm(){
             <Textarea name="bio" label="Biografia" />
         </fieldset>
 
+        <fieldset>
+          <legend>
+            Horários disponíveis
+            <button type="button">
+              + Novos Horários
+            </button>
+          </legend>
+
+          <div className="schedule-item">
+            <Select
+                name="week_day" 
+                label="Dia da Semana" 
+                options={[
+                  { value: '0', label: 'Segunda-Feira'},
+                  { value: '1', label: 'Terça-Feira'},
+                  { value: '2', label: 'Quarta-Feira'},
+                  { value: '3', label: 'Quinta-Feira'},
+                  { value: '4', label: 'Sexta-Feira'},
+                  { value: '5', label: 'Sábado'},
+                  { value: '6', label: 'Domingo'},
+                ]}
+            />          
+            <Input name="from" label="Das" type="time"/>
+            <Input name="to" label="Até" type="time"/>
+          </div>
+        </fieldset>
+
         <footer>
           <p>
             <img src={warningIcon} alt="Aviso Importante"/>
