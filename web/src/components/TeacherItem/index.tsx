@@ -4,22 +4,34 @@ import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 
 import './styles.css';
 
-function TeacherItem(){
+export interface Teacher {
+  id: number;
+  name: string;
+  avatar: string;
+  whatsapp : string;
+  bio : string;
+  subject: string;
+  cost: number;
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher}) => {
 
   return( 
     <article className="teacher-item">
       <header>
-        <img src="https://pbs.twimg.com/profile_images/1255309128123199488/JjDkjtNa_400x400.jpg" alt="André Serudo"/>
+        <img src={teacher.avatar} alt={teacher.name}/>
         <div>
-          <strong>André Serudo</strong>
-          <span>Química</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
 
       <p>
-        Entusiasta das melhores tecnologias de química avançada.
-        <br/><br/>
-        Apaixonado por explodir coisas em laboratório e por mudar a vida das pessoas através de experiências. Mais de 200.000 pessoas já passaram por uma das minhas explosões.
+        {teacher.bio}
       </p>
 
       <footer>
